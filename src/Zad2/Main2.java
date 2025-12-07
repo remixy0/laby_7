@@ -1,9 +1,6 @@
 package Zad2;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main2 {
     public static void main(String[] args) {
@@ -58,6 +55,12 @@ public class Main2 {
         System.out.println("");
         System.out.println("Borrowed books:");
         books.stream().filter(book -> book.borrowed == true).forEach(System.out::println);
+
+
+        System.out.println("");
+        System.out.println("Sorted books:");
+    Collections.sort(books, Comparator.comparingInt(x -> x.year));
+    System.out.println(books);
 
 
     }
