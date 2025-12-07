@@ -7,7 +7,7 @@ import java.util.List;
 public class Main2 {
     public static void main(String[] args) {
     List<Book> books = new ArrayList<>();
-    HashMap<String,Book> bookByAuthor = new HashMap<>();
+    HashMap<String,ArrayList<Book>> bookByAuthor = new HashMap<>();
 
     books.add(new Book("Numbers Don't Lie", "Vaclav Smil", 2020));
     books.add(new Book("How the World Really Works", "Vaclav Smil", 2022));
@@ -17,7 +17,15 @@ public class Main2 {
     books.add(new Book("The Pragmatic Programmer", "Andrew Hunt", 1999));
     books.add(new Book("Atomic Habits", "James Clear", 2018));
 
-    books.stream().map(x -> x.author);
+
+
+        books.forEach(book -> bookByAuthor.computeIfAbsent(book.author, k -> new ArrayList<>()).add(book));
+
+        bookByAuthor.forEach((author, booksList) -> {
+            System.out.println("Author: " + author);
+            System.out.println("Books: ");
+            booksList.stream().forEach(System.out::println);
+        });
 
 
     }
