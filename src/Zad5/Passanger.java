@@ -1,4 +1,17 @@
 package Zad5;
 
-public class Passanger {
+public abstract class Passanger {
+    String name;
+    boolean checkedIn;
+    public Passanger(String name, boolean checkedIn) {
+        this.name = name;
+        this.checkedIn = checkedIn;
+
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + checkedIn;
+    }
+
 }
