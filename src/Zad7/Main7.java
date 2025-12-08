@@ -32,9 +32,12 @@ public class Main7 {
             System.out.println(x + " " + totalAmount);
         });
 
-        history.stream().sorted(Comparator.comparing()).forEach(System.out::println);
 
         biggestTransaction("euro");
+
+        System.out.println("Sorted: ");
+        history.stream().sorted(Comparator.comparing(x->x.timestamp)).forEach(System.out::println);
+
     }
 
     public static void biggestTransaction(String currency){
